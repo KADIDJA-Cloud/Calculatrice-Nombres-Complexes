@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice de Nombres Complexes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="calculatrice">
+    <h1>Calculatrice de nombres complexes</h1>
+    
+    <!-- Écran -->
+    <div class="ecran">
+        <div class="ecran-ligne">
+            <span class="label">a</span>
+            <span id="affReel">0</span>
+        </div>
+        <div class="ecran-ligne">
+            <span class="label">bi</span>
+            <span id="affImag">0<sup>i</sup></span>
+        </div>
+        <div class="ecran-resultat" id="ecranResultat" style="display:none;">
+            <span id="resCart">-</span>
+            <span id="resPol">-</span>
+        </div>
+    </div>
+
+    <!-- Corps calculatrice -->
+    <div class="corps">
+
+        <!-- Colonne gauche -->
+        <div class="col-gauche">
+            <button class="btn-mode actif" onclick="setPartie('re')" id="btnRe">re</button>
+            <button class="btn-mode" onclick="setPartie('img')" id="btnImg">img</button>
+            <button class="btn-fn" onclick="calculerDirect('conjugue')">z⁻</button>
+            <button class="btn-fn" onclick="calculerDirect('oppose')">-z</button>
+            <button class="btn-fn" onclick="calculerDirect('inverse')">1/z</button>
+            <button class="btn-fn" onclick="calculerDirect('module')">mod</button>
+            <button class="btn-fn" onclick="calculerDirect('argument')">arg</button>
+            <button class="btn-fn" onclick="gererPuissance()">zⁿ</button>
+        </div>
+
+        <!-- Colonne milieu -->
+        <div class="col-milieu">
+            <div class="pave">
+                <button onclick="taper('7')">7</button>
+                <button onclick="taper('8')">8</button>
+                <button onclick="taper('9')">9</button>
+                <button onclick="taper('4')">4</button>
+                <button onclick="taper('5')">5</button>
+                <button onclick="taper('6')">6</button>
+                <button onclick="taper('3')">3</button>
+                <button onclick="taper('2')">2</button>
+                <button onclick="taper('1')">1</button>
+                <button class="btn-zero" onclick="taper('0')">0</button>
+                <button onclick="taper('.')">.</button>
+            </div>
+            <div class="pave-bas">
+                <button class="btn-clear" onclick="effacer()">C</button>
+                <button class="btn-back" onclick="retour()">←</button>
+            </div>
+        </div>
+
+        <!-- Colonne droite -->
+        <div class="col-droite">
+            <div class="mode-affichage">
+                <button class="btn-affich actif" id="btnCart" onclick="toggleAffichage()">cart</button>
+            </div>
+            <button class="btn-op" onclick="setOperation('/')">÷</button>
+            <button class="btn-op" onclick="setOperation('*')">×</button>
+            <button class="btn-op" onclick="setOperation('-')">−</button>
+            <button class="btn-op" onclick="setOperation('+')">+</button>
+            <button class="btn-egal" onclick="afficherResultat()">=</button>
+        </div>
+
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
